@@ -14,5 +14,4 @@ public class Main {
         int result = numPerMonth + months[months.length - 1];
         System.out.println(result);
     }
-
 }
