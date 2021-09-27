@@ -1,3 +1,22 @@
 #!/usr/bin/bash
 
-echo Test script hasn't been developed yet
+javac Main.java
+
+# Check failed compilation
+if [ $? -ne 0 ]; then
+    return
+fi
+
+numTests=$(find . -maxdepth 1 -type f -name "*.in" | wc -l)
+
+for i in $(seq 1 $numTests); do
+    java Main < $i.in > $i.out
+    diff $i.out $i.ans
+    if [ $? -eq 1 ]; then
+        echo "Failed test case $i"
+        return
+    fi
+done
+
+echo "All test cases passed!"
+

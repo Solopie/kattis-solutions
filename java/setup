@@ -3,7 +3,7 @@
 chalName=$1
 
 if [ -z "$chalName" ]; then
-    echo "Usage: ./setup <chal name>"
+    echo "Usage: . ./setup <challenge id>"
     return
 fi
 
@@ -23,7 +23,6 @@ fi
 # Setup challenge folder
 mkdir $1
 cp Main.java ./$1/
-cp test ./$1/
 cd ./$1/
 
 # Download tests files
