@@ -4,19 +4,21 @@ chalName=$1
 
 if [ -z "$chalName" ]; then
     echo "Usage: ./setup <chal name>"
-    exit 1
+    return
 fi
 
 if [ -d "./$chalName" ]; then
     echo "Challenge \"$chalName\" already setup"
-    exit 1
+    return
+fi
 
 # Check challenge exists
-status=$(curl -s -I https://open.kattis.com/problems/$chalName | head -n 1 | cut -d " " -f 2)
+statusCode=$(curl -s -I https://open.kattis.com/problems/$chalName | head -n 1 | cut -d " " -f 2)
 
-if [ ! $status -ne "200" ]; then
+if [ $statusCode -ne "200" ]; then
     echo "Challenge \"$chalName\" doesn't exist"
-    exit 1
+    return
+fi
 
 # Setup challenge folder
 mkdir $1
@@ -26,7 +28,7 @@ cd ./$1/
 
 # Download tests files
 curl -s -o samples.zip "https://open.kattis.com/problems/$chalName/file/statement/samples.zip"
-unzip samples.zip
+unzip samples.zip 1>/dev/null
 rm samples.zip
 
-exit 0
+echo Challenge setup successfully!
