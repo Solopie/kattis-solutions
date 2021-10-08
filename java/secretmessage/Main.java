@@ -11,11 +11,7 @@ public class Main {
 
             // Find next square number
             int m = message.length();
-            while (Math.sqrt(m) * Math.sqrt(m) != m) {
-                m++;
-            }
-
-            int k = (int) Math.sqrt(m);
+            int k = (int) Math.ceil(Math.sqrt(m));
 
             // int padding = m - message.length();
             char[][] grid = new char[k][k];
