@@ -1,0 +1,579 @@
+----- Target: 1 1
+Cur: 10 10
+Cur: 9 8
+Cur: 8 9
+Visited
+Visited
+Cur: 7 9
+Visited
+Cur: 8 10
+Visited
+Cur: 10 10
+Visited
+Visited
+Cur: 10 6
+Visited
+Visited
+Cur: 8 6
+Visited
+Visited
+Visited
+Visited
+Cur: 7 7
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 10
+Visited
+Visited
+Visited
+Cur: 10 8
+Visited
+Visited
+Visited
+Visited
+Cur: 9 7
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 8
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 10
+Visited
+Visited
+Cur: 9 10
+Visited
+Visited
+Cur: 8 7
+Visited
+Visited
+Visited
+Visited
+Cur: 6 7
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 8
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 10 9
+Visited
+Visited
+Visited
+Cur: 7 8
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 9
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 9 4
+Visited
+Visited
+Visited
+Cur: 8 5
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 10 7
+Visited
+Visited
+Visited
+Visited
+Cur: 10 5
+Visited
+Visited
+Visited
+Cur: 7 4
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 5
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 9 6
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 6
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 9
+Visited
+Visited
+Visited
+Visited
+Cur: 7 6
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 7 10
+Visited
+Visited
+Visited
+Visited
+Cur: 4 7
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 8
+Visited
+Visited
+Visited
+Visited
+Cur: 3 9
+Visited
+Visited
+Visited
+Visited
+Cur: 8 8
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 9 9
+Visited
+Visited
+Visited
+Visited
+Cur: 9 5
+Visited
+Visited
+Visited
+Visited
+Cur: 7 5
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 6
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 9
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 5
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 6
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 10
+Visited
+Visited
+Visited
+Visited
+Cur: 3 7
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 7
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 10 2
+Visited
+Visited
+Cur: 8 2
+Visited
+Visited
+Visited
+Visited
+Cur: 7 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 10 4
+Visited
+Visited
+Visited
+Visited
+Cur: 9 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 4
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 8 4
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 2
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 4
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 3 5
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 2 10
+Visited
+Visited
+Visited
+Cur: 2 8
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 2 6
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 2 9
+Visited
+Visited
+Visited
+Cur: 3 10
+Visited
+Visited
+Visited
+Cur: 3 6
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 2 7
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 1 10
+Visited
+Visited
+Cur: 1 8
+Visited
+Visited
+Visited
+Visited
+Cur: 10 3
+Visited
+Visited
+Visited
+Cur: 8 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 6 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 5 4
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 5
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 3 8
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 3 4
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 2 5
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 1 6
+Visited
+Visited
+Visited
+Visited
+Cur: 8 1
+Visited
+Visited
+Visited
+Visited
+Cur: 10 1
+Visited
+Visited
+Cur: 6 1
+Visited
+Visited
+Visited
+Visited
+Cur: 9 2
+Visited
+Visited
+Visited
+Visited
+Cur: 5 2
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 7 2
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 4 1
+Visited
+Visited
+Visited
+Visited
+Cur: 3 2
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 2 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 1 4
+Visited
+Visited
+Visited
+Visited
+Cur: 1 7
+Visited
+Visited
+Visited
+Visited
+Cur: 1 9
+Visited
+Visited
+Visited
+Cur: 2 4
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 1 5
+Visited
+Visited
+Visited
+Visited
+Cur: 9 1
+Visited
+Visited
+Visited
+Cur: 7 1
+Visited
+Visited
+Visited
+Visited
+Cur: 5 1
+Visited
+Visited
+Visited
+Visited
+Cur: 4 2
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 3 3
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Visited
+Cur: 3 1
+Visited
+Visited
+Visited
+Visited
+Cur: 2 2
+Visited
+Visited
+Visited
+Visited
+Cur: 1 3
+Visited
+Visited
+Visited
+Visited
+Cur: 1 1
+6
+----- Target: 1 2
+Cur: 1 1
+impossible
+----- Target: 1 2
+Cur: 1 1
+Visited
+Visited
+impossible
