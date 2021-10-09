@@ -16,7 +16,6 @@ public class Main {
             System.out
                     .println(parts[0] + " " + parts[1] + " " + parts[2] + " " + minString(sunsetTotal - sunriseTotal));
         }
-
     }
 
     public static String minString(int mins) {
