@@ -1,57 +1,102 @@
 import java.util.*;
 
 public class Main {
+    static int[][] moves = new int[][] { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 }, { 0, 0 } };
+
+    static class Grid {
+        boolean[][] grid;
+        int count;
+        int[] prevSquare;
+
+        public Grid(boolean[][] g, int count, int[] prevSquare) {
+            this.grid = g;
+            this.count = count;
+            this.prevSquare = prevSquare;
+        }
+    }
+
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        int c = sc.nextInt();
-        sc.nextLine();
-        for (int i = 0; i < c; i++) {
-            boolean[][] grid = new boolean[3][3];
+        int p = sc.nextInt();
 
-            for (int j = 0; j < 3; j++) {
-                String line = sc.nextLine();
-                for (int k = 0; k < line.length(); k++) {
-                    char cur = line.charAt(k);
+        while (p-- > 0) {
+
+            // True is black
+            boolean[][] target = new boolean[3][3];
+
+            for (int i = 0; i < target.length; i++) {
+                String line = sc.next();
+                for (int j = 0; j < target[i].length; j++) {
+                    char cur = line.charAt(j);
                     if (cur == '*') {
-                        grid[i][k] = true;
-                    } else {
-                        grid[i][k] = false;
+                        target[i][j] = true;
                     }
                 }
             }
 
             boolean[][] start = new boolean[3][3];
-            for (int j = 0; j < start.length; j++) {
-                for (int k = 0; k < start[j].length; k++) {
-                    start[j][k] = false;
+
+            ArrayDeque<Grid> queue = new ArrayDeque<>();
+            queue.add(new Grid(start, 0, new int[] { -1, -1 }));
+
+            HashSet<Integer> prevStates = new HashSet<Integer>();
+
+            while (queue.size() != 0) {
+                Grid cur = queue.remove();
+
+                // ID for the current state
+                int id = genInt(cur.grid);
+                if (prevStates.contains(id)) {
+                    continue;
+                }
+
+                prevStates.add(id);
+
+                if (isEqual(cur.grid, target)) {
+                    System.out.println(cur.count);
+                    break;
+                }
+                for (int i = 0; i < cur.grid.length; i++) {
+                    for (int j = 0; j < cur.grid[i].length; j++) {
+                        // Don't press the previous square to go backwards
+                        if (i != cur.prevSquare[0] || j != cur.prevSquare[1]) {
+                            boolean[][] temp = cloneGrid(cur.grid);
+                            for (int k = 0; k < moves.length; k++) {
+                                int tempX = i + moves[k][0];
+                                int tempY = j + moves[k][1];
+                                if (tempX >= 0 && tempX < temp.length && tempY >= 0 && tempY < temp[0].length) {
+                                    temp[tempX][tempY] = !temp[tempX][tempY];
+                                }
+                            }
+                            queue.add(new Grid(temp, cur.count + 1, new int[] { i, j }));
+
+                        }
+                    }
                 }
             }
-            System.out.println(countSolve(grid, start, 0));
-
         }
     }
 
-    public static int generateSolves(boolean[][] target, boolean[][] curState, int count) {
-        if (equalState(target, curState)) {
-            return count;
-        }
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                boolean[][] tempState = copyState(curState);
-                changeState(tempState, i, j);
-                return countSolve(target, tempState, count + 1);
+    public static int genInt(boolean[][] grid) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j]) {
+                    sb.append("1");
+                } else {
+                    sb.append("0");
+                }
             }
         }
 
-        return -1;
+        return Integer.parseInt(sb.toString(), 2);
     }
 
-    // Assumed equal size
-    public static boolean equalState(boolean[][] a, boolean[][] b) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (a[i][j] != b[i][j]) {
+    // Black is true
+    public static boolean isEqual(boolean[][] grid, boolean[][] target) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] != target[i][j]) {
                     return false;
                 }
             }
@@ -60,32 +105,16 @@ public class Main {
         return true;
     }
 
-    public static boolean[][] copyState(boolean[][] a) {
-        boolean[][] result = new boolean[3][3];
+    public static boolean[][] cloneGrid(boolean[][] grid) {
+        boolean[][] result = new boolean[grid.length][grid[0].length];
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                result[i][j] = a[i][j];
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                result[i][j] = grid[i][j];
             }
         }
 
         return result;
-    }
-
-    public static void changeState(boolean[][] target, int y, int x) {
-        target[y][x] = !target[y][x];
-        if (y != 0) {
-            target[y - 1][x] = !target[y - 1][x];
-        }
-        if (y != 2) {
-            target[y + 1][x] = !target[y + 1][x];
-        }
-        if (x != 0) {
-            target[y][x - 1] = !target[y][x - 1];
-        }
-        if (x != 2) {
-            target[y][x + 1] = !target[y][x + 1];
-        }
     }
 
 }
