@@ -1,27 +1,28 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 javac Main.java
 
 # Check failed compilation
 if [ $? -ne 0 ]; then
+    echo "[ERR] Failed to compile"
     return
 fi
 
-if [ ! -f "1.in" ]; then
-    echo "Irregular test file names"
-    return
-fi
+testIn=()
+while IFS=  read -r -d $'\0'; do
+    testIn+=("$REPLY")
+done < <(find . -name "*.in" -print0)
 
-numTests=$(find . -maxdepth 1 -type f -name "*.in" | wc -l)
-
-for i in $(seq 1 $numTests); do
-    java Main < $i.in > $i.out
-    diff $i.out $i.ans
+for i in $testIn; do
+    fileName=$(echo $i | cut -d "." -f 2 | cut -d "/" -f 2)
+    echo Testing: $fileName
+    java Main < $fileName.in > $fileName.out
+    diff -y $fileName.out $fileName.ans
     if [ $? -eq 1 ]; then
-        echo "Failed test case $i"
+        echo "[ERR] Failed test case $fileName"
         return
     fi
 done
 
-echo "All test cases passed!"
+echo "[SUCCESS] All test cases passed!"
 
