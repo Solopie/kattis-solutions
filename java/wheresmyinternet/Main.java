@@ -1,60 +1,66 @@
-import java.io.*;
+import java.io.InputStreamReader;
 import java.util.*;
+import java.io.*;
 
 public class Main {
     public static void main(String args[]) throws IOException {
-        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(read.readLine());
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int houses = Integer.parseInt(st.nextToken());
-        int cables = Integer.parseInt(st.nextToken());
+        HashMap<Integer, HashSet<Integer>> adj = new HashMap<>();
+        for (int i = 0; i < m; i++) {
+            st = new StringTokenizer(br.readLine());
 
-        boolean[][] connected = new boolean[houses + 1][houses + 1];
-        for (int i = 0; i < cables; i++) {
-            st = new StringTokenizer(read.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            connected[a][b] = true;
-            connected[b][a] = true;
+
+            if (!adj.containsKey(a)) {
+                adj.put(a, new HashSet<Integer>());
+            }
+            if (!adj.containsKey(b)) {
+                adj.put(b, new HashSet<Integer>());
+            }
+            adj.get(a).add(b);
+            adj.get(b).add(a);
         }
 
-        Boolean[] visited = new Boolean[houses + 1];
-        for (int i = 0; i < visited.length; i++) {
-            visited[i] = false;
-        }
-        dfs(1, visited, connected);
+        boolean[] visited = new boolean[n + 1];
+        dfs(adj, visited, 1);
 
-        StringBuilder b = new StringBuilder();
-        boolean allConnected = true;
+        ArrayList<Integer> notVisited = new ArrayList<Integer>();
         for (int i = 1; i < visited.length; i++) {
             if (!visited[i]) {
-                b.append(i + "\n");
-                allConnected = false;
+                notVisited.add(i);
             }
         }
 
-        if (allConnected) {
+        if (notVisited.size() == 0) {
             System.out.println("Connected");
-        } else {
-            System.out.println(b);
-        }
-    }
-
-    public static void dfs(int h, Boolean[] visited, boolean[][] connected) {
-        if (visited[h] == true) {
             return;
         }
 
-        visited[h] = true;
+        StringBuilder sb = new StringBuilder();
 
-        for (int i = 1; i < visited.length; i++) {
-            if (i == h) {
-                continue;
-            }
-            if (connected[i][h]) {
-                dfs(i, visited, connected);
-            }
+        for (Integer i : notVisited) {
+            sb.append(i + "\n");
         }
+
+        System.out.print(sb);
     }
 
+    public static void dfs(HashMap<Integer, HashSet<Integer>> adj, boolean[] visited, int house) {
+        if (visited[house]) {
+            return;
+        }
+        visited[house] = true;
+
+        if (adj.containsKey(house)) {
+            for (Integer i : adj.get(house)) {
+                dfs(adj, visited, i);
+            }
+        }
+
+    }
 }
