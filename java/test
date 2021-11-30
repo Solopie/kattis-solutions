@@ -17,7 +17,8 @@ for i in $testIn; do
     fileName=$(echo $i | cut -d "/" -f 2- | rev | cut -d "." -f 2- | rev)
     echo Testing: $fileName
     java Main < $fileName.in > $fileName.out
-    diff -y $fileName.out $fileName.ans
+    diff -y <(nl $fileName.out) <(nl $fileName.ans)
+    # diff -y $fileName.out $fileName.ans
     if [ $? -eq 1 ]; then
         echo "[ERR] Failed test case $fileName"
         return
