@@ -14,7 +14,7 @@ while IFS=  read -r -d $'\0'; do
 done < <(find . -name "*.in" -print0)
 
 for i in $testIn; do
-    fileName=$(echo $i | cut -d "." -f 2 | cut -d "/" -f 2)
+    fileName=$(echo $i | cut -d "/" -f 2- | rev | cut -d "." -f 2- | rev)
     echo Testing: $fileName
     java Main < $fileName.in > $fileName.out
     diff -y $fileName.out $fileName.ans
