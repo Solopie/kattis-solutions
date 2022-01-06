@@ -1,24 +1,19 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        int numCases = sc.nextInt();
-        for(int i = 0; i < numCases; i++) {
+
+        StringBuilder sb = new StringBuilder();
+        int n = sc.nextInt();
+        while (n-- > 0) {
             int k = sc.nextInt();
-            int result = 0;
-            for(int j = 0; j < k; j++) {
-                if(j == k - 1) {
-                    result += sc.nextInt();
-                } else {
-                    result += sc.nextInt() - 1;
-                }
+            int total = 0;
+            for (int i = 0; i < k; i++) {
+                total += sc.nextInt();
             }
-            System.out.println(result);
+            sb.append((total - (k - 1)) + "\n");
         }
+        System.out.print(sb);
     }
 }
-
-
-
-
