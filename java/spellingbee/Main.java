@@ -5,39 +5,40 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         String letters = sc.next();
+        int n = sc.nextInt();
+
         StringBuilder sb = new StringBuilder();
 
-        int n = sc.nextInt();
-        while(n-- > 0) {
+        wordLoop: while (n-- > 0) {
             String word = sc.next();
 
-            int countContains = 0;
             boolean hasCenter = false;
+            for (int i = 0; i < word.length(); i++) {
+                // Ensure the current character is in the given letters
+                boolean validLetter = false;
+                for (int j = 0; j < letters.length(); j++) {
+                    if (word.charAt(i) == letters.charAt(j)) {
+                        validLetter = true;
 
-            boolean onlyGivenLetters = true;
-            for(int i = 0; i < word.length(); i++) {
-                boolean hasGivenLetter = false;
-                for(int j = 0; j < letters.length(); j++) {
-                    if(letters.charAt(j) == word.charAt(i)) {
-                        if(j == 0) {
+                        // If it's the first letter in letters than the word contains the center letter
+                        if (j == 0) {
                             hasCenter = true;
                         }
-                        countContains++;
-                        hasGivenLetter = true;
                         break;
-                    } 
+                    }
                 }
-                if(!hasGivenLetter) {
-                    onlyGivenLetters = false;
-                    break;
+                // There is a letter that isn't in letters in the word
+                if (!validLetter) {
+                    continue wordLoop;
                 }
             }
 
-            // Contains the center character and more than or equal to 4 characters
-            if(onlyGivenLetters && hasCenter && countContains >= 4) {
-                sb.append(word + "\n");
+            // Doesn't have center letter or isn't more than 4 letters
+            if (!hasCenter || word.length() < 4) {
+                continue;
             }
 
+            sb.append(word + "\n");
         }
 
         System.out.print(sb);
